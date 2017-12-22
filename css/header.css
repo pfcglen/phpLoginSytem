@@ -1,0 +1,99 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24 Nov, 2017, 4:09:45 PM
+    Author     : rabbitLoops
+*/
+.forgot.text-right{
+    margin: 0;
+    padding: 0 0 5px 5px;
+}
+.forgot.text-right a {
+    font-size: .8rem;
+    color: #b3b3b3 !important;
+}
+.container-main {
+    background-color: #ffff;
+    width: 100%;
+    position: relative;
+}
+.userAvatar{
+    width: 10%;
+    border-radius: 50%;
+    cursor: pointer;
+}
+#guestWrapper ul li {
+    align-self: center;
+}
+#guestWrapper ul > li {
+    padding: 10px 10px 10px 0;
+}
+#guestWrapper ul li p {
+    margin: 0;
+}
+#headerLogin .form-control {
+    border-radius: 0 !important;
+    padding: 3px;
+}
+.dropdown .dropdown-menu {
+    float: right !important;
+    right: 0 !important;
+    left: auto;
+    top: 4rem;
+}
+#headerLoginBtn{
+    cursor: pointer;
+}
+
+
+/*profile*/
+.profile .jumbotron.jumbotron-fluid {
+    min-height: 50vh;
+    padding: 4rem;
+
+}
+.userPhoto {
+    position: relative;
+    min-height: 50vh;
+    background: red;
+    overflow: hidden;
+}
+.userPhoto  img{
+    height: 100%;
+    object-fit: cover;
+}
+.cardWrapper {
+    position: absolute;
+    top: -14rem;
+}
+#userSidebar {
+    position: reltive;
+}
+.uploadImage {
+    position: absolute;
+    z-index: 100;
+    margin: 0;
+    right: 10px;
+    bottom: 10px;
+    cursor: pointer;
+}
+.userPhoto img:hover {
+    opacity: .7;
+}
+
+
+/*upload image*/
+.user-upload-photo .form{
+    margin: 7rem auto;
+}
+.user-upload-photo .form .login-form{
+    display: block;
+}
+#bigUserPhot {
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

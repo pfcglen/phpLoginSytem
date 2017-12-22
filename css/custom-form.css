@@ -1,0 +1,198 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+.register-form input,
+.login-form input,
+.config-profile input{
+    border-radius: 50px;
+    text-align: center;
+}
+.form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background: #43A047;
+}
+.form-group {
+    margin: .5rem 0 1rem 0;
+    position: relative;
+  }
+.togglePass {
+    position: absolute;
+    left: 1rem;
+    top: .75rem;
+    margin: 0;
+    cursor: pointer;
+}
+@-moz-keyframes fadeIn{
+     0%{
+         opacity:0
+     }
+     to{
+         opacity:1
+     }
+ }
+@keyframes fadeIn{
+     0%{
+         opacity:0
+     }
+     to{
+         opacity:1
+     }
+ }
+ #main-wrapper-information .col:nth-child(2) > ul {
+    flex-direction: row !important;
+    margin-top: .5rem;
+}
+#main-wrapper-information .col:nth-child(2)  ul button{
+    cursor: pointer;
+}
+.togglePass .material-icons {
+    z-index: 10;
+    cursor: pointer;
+    animation-name:fadeIn;
+    position: relative;
+ } 
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form .message a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+.form .login-form {
+  display: none;
+}
+
+body {
+  background: #A9F5F2; /* fallback for old browsers */
+  background: -webkit-linear-gradient(right, #A9F5F2, #8DC26F);
+  background: -moz-linear-gradient(right, #A9F5F2, #8DC26F);
+  background: -o-linear-gradient(right, #A9F5F2, #8DC26F);
+  background: linear-gradient(to left, #A9F5F2, #8DC26F);
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;      
+}
+
+
+/*
+ <?php
+                                    //fetch and display user details, preparation for edit.php
+                                    while ($user = mysqli_fetch_array($sql)) {
+                                        echo "<ul class='list-group list-group-flush'>";
+                                        echo "<li class='list-group-item'>" . "<strong> First name: </strong>" . " " . $user['first_name'] . "</li>";
+                                        echo "<li class='list-group-item'>" . "<strong> Last name: </strong>" . " " . $user['last_name'] . "</li>";
+                                        echo "<li class='list-group-item'>" . "<strong> email: </strong>" . " " . $user['email'] . "</li>";
+                                        echo "<li class='list-group-item'>" . "<strong> Created: </strong>" . " " . $user['creationDate'] . "</li>";
+                                        echo "<li class='list-group-item'>" . "<strong> Lat Modify: </strong>" . " " . $user['lastModify'] . "</li>";
+                                        echo "<li class='list-group-item'>" . "<strong><a href=\"edit_profile.php?id=$user[id]\"'>"
+                                        . "                        <i class='fa fa-pencil-square-o' aria-hidden='true'></i>
+Edit Profile</a></strong>" . "</li>";
+                                        echo "</ul>";
+                                    }
+                                    ?>  
+
+*/
+
+/*
+
+require 'db.php';
+session_start();
+
+if(isset($_POST['submit'])){
+  $id = $_POST['id'];
+  $target_dir = "img/";
+  $filename = explode('.',$_FILES['image']['name']);
+  $ext = $filename[1];
+  $imgname = time().'.'.$ext;
+  $target_file = $target_dir . $imgname ;
+
+  $uploadOk = 1;
+  $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+  // Check if image file is a actual image or fake image
+  $check = getimagesize($_FILES["image"]["tmp_name"]);
+  if($check !== false) {
+    $text="File is an image - " . $check["mime"] . ".";
+    $uploadOk = 1;
+  } else {
+    $text="File is not an image.";
+    $uploadOk = 0;
+  }
+  // Check if file already exists
+  if(file_exists($target_file)) {
+    $text="Sorry, file already exists.";
+    $uploadOk = 0;
+  }
+  // Check file size
+  if($_FILES["image"]["size"] > 2000000) {
+    $text="Sorry, your file is too large.";
+    $uploadOk = 0;
+  }
+  // Allow certain file formats
+  if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+  && $imageFileType != "gif" && $imageFileType != "bmp" ) {
+    echo "Sorry, only JPG, JPEG, PNG, GIF & BMP files are allowed.";
+    $uploadOk = 0;
+  }
+  // Check if $uploadOk is set to 0 by an error
+  if($uploadOk == 0) {
+    $_SESSION["error"]=$text;
+    header("Location:index.php?id=$id"); Redirect browser 
+    exit();
+
+  if everything is ok, try to upload file
+  }else{
+    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+      $path=$imgname;
+      //$sql = mysqli_query($mysqli, "INSERT INTO users (userPhoto) " . "VALUES ('$path')");
+       //$result = mysqli_query($mysqli, "UPDATE users SET name='$name',age='$age',email='$email' WHERE id=$id");
+       //$sql = "INSERT INTO users (userPhoto) " . "VALUES ('$path') WHERE id='$id' ");
+      $sql = mysqli_query($mysqli, "INSERT INTO users(userPhoto" . "VALUE('$path')");
+      $_SESSION["Success"]='Image Is Upload Success...';
+      header("Location: profile.php"); /* Redirect browser
+      exit();
+    } else {
+      $_SESSION["err"]=$text;
+      header("Location:index.php"); /* Redirect browser 
+      exit();
+    }
+  }
+} */
