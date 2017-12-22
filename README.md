@@ -1,4 +1,6 @@
-# phpLoginSytem - is a user registration form where user can input there information then verifiy account via email, I started learning PHP and in my personal way of learning is to build a PHP project itself, by developing this system i gained understanding 
+# phpLoginSytem 
+
+is a user registration form where user can input there information then verifiy account via email, I started learning PHP and in my personal way of learning is to build a PHP project itself, by developing this system i gained understanding 
 how PHP works. I didn't from scratch i do copies these files from "Clever Techie" which i like his teaching style .
 Below are the features by default
 User Registration 
