@@ -17,3 +17,10 @@ Adding more soon.
 User profile image
 User verification via SMS
 etc.
+
+Fixed
+- Compare password
+- Check if user already login
+
+Add
+- Google recaptcha 
