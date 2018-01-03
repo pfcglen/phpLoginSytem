@@ -40,29 +40,25 @@ require 'db.php';
             </div>
 
             <div id="guestWrapper" class="row">
-                <!--                Check if user is logged in using the session variable-->
-<?php if (isset($first_name) == true) : ?>
-
-                    <div class="dropdown">
-
-                        <img src="img/userImage/default.png" alt="..."  class="float-right userAvatar img-thumbnail dropdown-toggle"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <p class="uploadImage"><a href="uploadImage.php?id=<?php echo $id; ?>">Not empty<i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></p>
-
-
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item disabled" href="#">Signed in as <span><?php echo $first_name; ?> </span></a>'
-                            <a class="dropdown-item" href="profile.php">Your Profile</a>
-                            <a class="dropdown-item" href="logout.php">Logout</a>
-                        </div>
-                    </div>
-<?php else : ?>
-                    <!--                    dropdown login-->
-                    <button id="headerLoginBtn" type="button" class="btn btn-outline-primary">Log in</button>
-<?php endif; ?>       
+                <!--  Check if user is logged in using the session variable-->
+            <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true)  : ?>
+                    <?php $first_name = $_SESSION['first_name'];?>
+                    <?php if(isset($_SESSION['first_name'])) : ?>
+                        <div class="dropdown">
+                               <img src="img/userImage/default.png" alt="..."  class="float-right userAvatar img-thumbnail dropdown-toggle"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                   <a class="dropdown-item disabled" href="#">Signed in as <strong><?php echo $first_name; ?> </strong></a>'
+                                   <a class="dropdown-item" href="profile.php">Your Profile</a>
+                                   <a class="dropdown-item" href="logout.php">Logout</a>
+                               </div>
+                           </div>
+                    <?php endif; ?>                   
+                <?php else : ?>
+                         <button id="headerLoginBtn" type="button" class="btn btn-outline-primary">Log in</button>
+                <?php endif; ?>       
             </div>
         </nav>  
     </div>
 </div>
-
 
 
