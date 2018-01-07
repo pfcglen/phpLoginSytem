@@ -14,7 +14,7 @@ require 'db.php';
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src='https://www.google.com/recaptcha/api.js'></script>
-<?php include 'css/css.html'; ?>
+        <?php include 'css/css.html'; ?>
     </head>
 
     <?php
@@ -26,20 +26,20 @@ require 'db.php';
         }
     }
     ?>
-    
-<!--    check if user login-->
+
+    <!--    check if user login-->
 
     <body class="home">
-    <?php include 'header.php'; ?>
+        <?php include 'header.php'; ?>
 
         <div class="login-page">   
             <?php if (isset($_SESSION['message'])): ?>
-                        <div class="alert alert-danger alert-dismissable fade show">
-                            <button type="button" class="close" data-dismiss="alert">&times;</button>
-                            <p class="text-center"><strong><?php echo $_SESSION['message']; ?></strong></p>
-                        </div>
-                        <!--            Don't annoy the user with more messages upon page refresh-->
-                        <?php unset($_SESSION['message']); ?>
+                <div class="alert alert-danger alert-dismissable fade show">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <p class="text-center"><strong><?php echo $_SESSION['message']; ?></strong></p>
+                </div>
+                <!--            Don't annoy the user with more messages upon page refresh-->
+                <?php unset($_SESSION['message']); ?>
             <?php endif; ?>
             <div class="form">
                 <form action="register.php" method="POST" class="register-form">
@@ -76,9 +76,9 @@ require 'db.php';
             </div>
         </div>
 
-<?php include_once 'footer.php'; ?>
+        <?php include_once 'footer.php'; ?>
         <!-- /form -->
-<?php include 'js/js.html'; ?>
+        <?php include 'js/js.html'; ?>
 
     </body>
 
