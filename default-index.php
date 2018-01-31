@@ -17,7 +17,16 @@ require 'db.php';
         <?php include 'css/css.html'; ?>
     </head>
 
- 
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if (isset($_POST['login'])) { //user logging in
+            require 'login.php';
+        } elseif (isset($_POST['register'])) { //user registering
+            require 'register.php';
+        }
+    }
+    ?>
+
     <!--    check if user login-->
 
     <body class="home">
@@ -32,33 +41,34 @@ require 'db.php';
                 <!--            Don't annoy the user with more messages upon page refresh-->
                 <?php unset($_SESSION['message']); ?>
             <?php endif; ?>
-            <div class="form">                          
-                    <p class="message">Already registered? <a href="#">Sign In</a></p>
-                    <form action="register.php" id="formReg" method="POST" class="register-form">
+            <div class="form">
+                <form action="register.php" method="POST" class="register-form">
 
                     <div class="form-group">
-                        <input class="form-control" type="text" placeholder="First name" name="firstname" />
+                        <input class="form-control" type="text" placeholder="First name" name="firstname" required/>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="text" placeholder="Last Name" name="lastname" />
+                        <input class="form-control" type="text" placeholder="Last Name" name="lastname" required/>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="text" placeholder="Email" name="email"  />
+                        <input class="form-control" type="text" placeholder="Email" name="email" required />
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="password" class="userPassword" placeholder="Password" name="password" />  
+                        <input class="form-control" type="password" class="userPassword" placeholder="Password" name="password" required/>  
                         <p class="togglePass"><i class="material-icons">visibility_off</i></p>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="password" class="userPassword" placeholder="Confirm Password" name="confirmPassword" />
+                        <input class="form-control" type="password" class="userPassword" placeholder="Confirm Password" name="confirmPassword" required/>
                         <p class="togglePass"><i class="material-icons">visibility_off</i></p>     
                     </div>
+
                     <div class="form-group"><div class="g-recaptcha" data-sitekey="6LfsAD8UAAAAALI6mrRqQlJrVCnf_S-44lTtzzss"></div></div>
-                    <button class="regBtn" id="ajaxBtn" type="submit" name="register">create</button>
+                    <button class="regBtn" type="submit" name="register">create</button>
+                    <p class="message">Already registered? <a href="#">Sign In</a></p>
                 </form>
                 <form action="index.php" method="POST" class="login-form">
-                    <div class="form-group"><input class="form-control" type="text" placeholder="Email" name="email" /></div>
-                    <div class="form-group"><input class="form-control" type="password" placeholder="Password" name="password" /></div>
+                    <div class="form-group"><input class="form-control" type="text" placeholder="Email" name="email" required/></div>
+                    <div class="form-group"><input class="form-control" type="password" placeholder="Password" name="password" required/></div>
                     <p class="forgot text-right"><a href="forgot.php">Forgot Password?</a></p>
                     <button name="login">login</button>
                     <p class="message">Not registered? <a href="#">Create an account</a></p>

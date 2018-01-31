@@ -27,7 +27,7 @@ if ($_SESSION['logged_in'] == 1) {
     }
 
 
-//echo '<pre>' . 'profile.php' . '', print_r($_SESSION), '</pre>';
+print_r($_SESSION);
 ?>
 
 
